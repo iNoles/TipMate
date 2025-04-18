@@ -15,7 +15,7 @@ Calculate tips, split bills, and round totals with ease while respecting your sy
 
 ## 📸 Preview
 
-Coming Soon
+![Home Screen](Screenshots/tipmate.png)
 
 ## 🚀 Getting Started
 
