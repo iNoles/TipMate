@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TipMate"
+             x:Class="TipMate.MainPage"
+             x:DataType="local:MainPage"
+             Title="Tip Calculator">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Bill Input -->
+            <Label Text="Bill Amount" FontAttributes="Bold"/>
+            <Entry x:Name="BillEntry" Keyboard="Numeric" Text="0.00" Unfocused="OnEntryUnfocused"/>
+
+            <!-- Tip Section -->
+            <Label Text="Tip Percentage" FontAttributes="Bold"/>
+            <HorizontalStackLayout>
+                <Slider x:Name="TipSlider" Minimum="0" Maximum="100" ValueChanged="OnTipSliderChanged"/>
+                <Entry x:Name="TipEntry" WidthRequest="60" Keyboard="Numeric" TextChanged="OnTipEntryChanged" Unfocused="OnEntryUnfocused"/>
+            </HorizontalStackLayout>
+
+            <!-- Split Section -->
+            <Label Text="Split Between (People)" FontAttributes="Bold"/>
+            <HorizontalStackLayout>
+                <Slider x:Name="SplitSlider" Minimum="1" Maximum="20" ValueChanged="OnSplitSliderChanged"/>
+                <Entry x:Name="SplitEntry" WidthRequest="60" Keyboard="Numeric" TextChanged="OnSplitEntryChanged" Unfocused="OnEntryUnfocused" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="20" Padding="10">
+                <!-- Round Tip -->
+                <HorizontalStackLayout>
+                    <Label Text="Round Tip" VerticalOptions="Center" />
+                    <Switch x:Name="TipRoundSwitch" Toggled="OnRoundTipToggled" />
+                </HorizontalStackLayout>
+
+                <!-- Round Total -->
+                <HorizontalStackLayout>
+                    <Label Text="Round Total" VerticalOptions="Center"/>
+                    <Switch x:Name="TotalRoundSwitch" Toggled="OnRoundTotalToggled" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <!-- Results -->
+            <HorizontalStackLayout>
+                <Label Text="Tip: " FontSize="16" FontAttributes="Bold"/>
+                <Label x:Name="TipAmountLabel" Text="$0.00" FontSize="16"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Total: " FontSize="16" FontAttributes="Bold"/>
+                <Label x:Name="TotalAmountLabel" Text="$0.00" FontSize="16"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout IsVisible="{Binding IsMultiplePeople}">
+                <Label Text="Each Person Pays: " FontSize="20" FontAttributes="Bold"/>
+                <Label x:Name="ResultLabel" Text="$0.00" FontSize="20"  TextColor="Green"/>
+            </HorizontalStackLayout>
+
+            <!-- Share Button -->
+            <Button Text="Share Breakdown" Clicked="OnShareClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
