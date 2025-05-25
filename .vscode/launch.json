@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run MAUI (Mac Catalyst)",
+        "type": "coreclr",
+        "request": "launch",
+        "program": "dotnet",
+        "args": [
+          "build",
+          "-t:Run",
+          "-f:net9.0-maccatalyst"
+        ],
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "stopAtEntry": false
+      }
+    ]
+  }
+  
